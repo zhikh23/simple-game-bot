@@ -1,5 +1,6 @@
 import asyncio
 import logging
+
 from os import getenv
 from dotenv import load_dotenv
 
@@ -7,11 +8,12 @@ from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums.parse_mode import ParseMode
 from aiogram.fsm.storage.memory import MemoryStorage
+
 from handlers import router
 
 
-load_dotenv(dotenv_path=".env")
-BOT_TOKEN = getenv('BOT_TOKEN')  # берем api токен из .env
+load_dotenv()
+BOT_TOKEN = getenv("BOT_TOKEN")
 print(BOT_TOKEN)
 
 
