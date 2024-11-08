@@ -22,13 +22,13 @@ async def other_handler(msg: Message):
     with open(path, 'r', encoding='utf-8') as file:
         for line in file:
             if tg_user_id == int(line.strip()):
-                await msg.answer('Вы уже разгадали код.')
+                await msg.answer('Вы уже прошли игру')
                 return
 
     secret_key = getenv('SECRET_KEY')
     if msg.text.strip() == secret_key:
         with open(path, 'a', encoding='utf-8') as file:
             file.write(str(tg_user_id)+'\n')
-        await msg.answer('Код введен успешно.')
+        await msg.answer('Вы прошли игру')
         return
-    await msg.answer('Код неверен')
+    await msg.answer('Попробуйте снова')
